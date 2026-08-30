@@ -42,7 +42,7 @@ powershell -ExecutionPolicy Bypass -File .\install-hermes-cn.ps1
 | ripgrep | 提前下载官方便携包，绕开系统包管理器慢源 |
 | ffmpeg | 从 npmmirror 提前下载平台独立包，并校验包摘要 |
 | cua-driver | 提前下载官方安装器，并把 GitHub Release/API 改走代理 |
-| Playwright Chromium | 沿用官方安装器的超时、系统依赖与浏览器安装逻辑 |
+| Playwright Chromium | `cdn.npmmirror.com/binaries/playwright`，系统依赖仍由官方逻辑处理 |
 
 Linux/macOS 版不会擅自改写 `/etc/apt`、Homebrew 或其他系统级软件源；官方脚本需要通过系统包管理器安装 Git、编译器或浏览器系统库时，仍使用机器现有的软件源配置。
 
@@ -76,6 +76,7 @@ Linux/macOS 版不会擅自改写 `/etc/apt`、Homebrew 或其他系统级软件
 export HERMES_CN_GH_PROXY=https://gh-proxy.org
 export npm_config_registry=https://registry.npmmirror.com
 export UV_DEFAULT_INDEX=https://pypi.tuna.tsinghua.edu.cn/simple
+export PLAYWRIGHT_DOWNLOAD_HOST=https://cdn.npmmirror.com/binaries/playwright
 ./install.sh
 ```
 

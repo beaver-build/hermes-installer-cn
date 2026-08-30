@@ -94,12 +94,15 @@ export UV_DEFAULT_INDEX="${UV_DEFAULT_INDEX:-https://pypi.tuna.tsinghua.edu.cn/s
 export UV_INDEX_URL="${UV_INDEX_URL:-$UV_DEFAULT_INDEX}"
 export PIP_INDEX_URL="${PIP_INDEX_URL:-$UV_DEFAULT_INDEX}"
 export PIP_DISABLE_PIP_VERSION_CHECK=1
+export PLAYWRIGHT_DOWNLOAD_HOST="${PLAYWRIGHT_DOWNLOAD_HOST:-https://cdn.npmmirror.com/binaries/playwright}"
+export PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT="${PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT:-120000}"
 
 printf '\nHermes Agent 国内加速安装器（Linux / macOS）\n'
 printf '  npm:      %s\n' "$npm_config_registry"
 printf '  PyPI:     %s\n' "$UV_DEFAULT_INDEX"
 printf '  Node:     %s\n' "$npm_config_disturl"
-printf '  Electron: %s\n\n' "$ELECTRON_MIRROR"
+printf '  Electron: %s\n' "$ELECTRON_MIRROR"
+printf '  Playwright: %s\n\n' "$PLAYWRIGHT_DOWNLOAD_HOST"
 
 tmp_dir="$(mktemp -d "${TMPDIR:-/tmp}/hermes-cn-installer.XXXXXX")"
 cleanup() {
